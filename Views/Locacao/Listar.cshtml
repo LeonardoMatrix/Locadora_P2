@@ -1,0 +1,56 @@
+@model IEnumerable<Locadora.Models.Locacao>
+
+@{
+    ViewData["Listar"] = "Listar";
+}
+
+<h2>Listar</h2>
+
+<p>
+    <a asp-action="Criar">Criar Novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DataLocacao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataDevolucao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Valor)
+            </th>
+
+            <th>
+            @Html.DisplayNameFor(model => model.Cliente.Nome)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataLocacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataDevolucao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Valor)
+            </td>
+
+             <td>
+                  @Html.DisplayFor(model => item.Cliente.Nome)
+            </td>
+            <td>
+                <a asp-action="Editar" asp-route-id="@item.CodigoLocacao">Editar</a> |
+                <a asp-action="Detalhar" asp-route-id="@item.CodigoLocacao">Detalhar</a> |
+                <a asp-action="Deletar" asp-route-id="@item.CodigoLocacao">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

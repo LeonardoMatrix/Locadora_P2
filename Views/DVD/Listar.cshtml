@@ -1,0 +1,29 @@
+@model IEnumerable<Locadora.Models.DVD>
+
+@{
+    ViewData["Listar"] = "Listar";
+}
+
+<h2>Listar</h2>
+
+<p>
+    <a asp-action="Criar">Criar Novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                <a asp-action="Editar" asp-route-id="@item.ID">Editar</a> |
+                <a asp-action="Detalhar" asp-route-id="@item.ID">Detalhar</a> |
+                <a asp-action="Deletar" asp-route-id="@item.ID">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

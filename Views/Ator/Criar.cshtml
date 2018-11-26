@@ -1,0 +1,33 @@
+@model Locadora.Models.Ator
+
+@{
+    ViewData["Criar"] = "Criar";
+}
+
+<h2>Criar</h2>
+
+<h4>Ator</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Criar">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="AtorPrincipal" class="control-label"></label>
+                <input asp-for="AtorPrincipal" class="form-control" />
+                <span asp-validation-for="AtorPrincipal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="Submit" value="Criar" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Listar">Voltar para Lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

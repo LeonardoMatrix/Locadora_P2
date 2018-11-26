@@ -1,0 +1,53 @@
+@model IEnumerable<Locadora.Models.Video>
+
+@{
+    ViewData["Listar"] = "Listar";
+}
+
+<h2>Listar</h2>
+
+<p>
+    <a asp-action="Criar">Criar Novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Titulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Disponibilidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuantidadeEstoque)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Genero)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Disponibilidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuantidadeEstoque)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genero)
+            </td>
+            <td>
+                <a asp-action="Editar" asp-route-id="@item.CodigoVideo">Editar</a> |
+                <a asp-action="Detalhar" asp-route-id="@item.CodigoVideo">Detalhar</a> |
+                <a asp-action="Deletar" asp-route-id="@item.CodigoVideo">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

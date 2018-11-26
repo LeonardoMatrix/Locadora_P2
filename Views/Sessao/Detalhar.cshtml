@@ -1,0 +1,30 @@
+@model Locadora.Models.Sessao
+
+@{
+    ViewData["Detalhar"] = "Detalhar";
+}
+
+<h2>Detalhar</h2>
+
+<div>
+    <h4>Sessao</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Localizacao)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Localizacao)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Editar" asp-route-id="@Model.ID">Edit</a> |
+    <a asp-action="Listar">Voltar para Lista</a>
+</div>

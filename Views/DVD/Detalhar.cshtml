@@ -1,0 +1,18 @@
+@model Locadora.Models.DVD
+
+@{
+    ViewData["Detalhar"] = "Detalhar";
+}
+
+<h2>Detalhar</h2>
+
+<div>
+    <h4>DVD</h4>
+    <hr />
+    <dl class="dl-horizontal">
+    </dl>
+</div>
+<div>
+    <a asp-action="Editar" asp-route-id="@Model.ID">Editar</a> |
+    <a asp-action="Listar">Voltar para Lista</a>
+</div>
